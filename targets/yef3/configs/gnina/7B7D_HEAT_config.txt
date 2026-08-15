@@ -1,0 +1,10 @@
+
+#box center
+center_x = 304.8
+center_y = 114
+center_z = 206
+
+#Size in angstroms
+size_x = 20
+size_y = 13.5
+size_z = 13

@@ -1,0 +1,20 @@
+# 1. Global bans on heavy data and structural files
+*.sdf
+*.pdbqt
+*.tar.gz
+*.zip
+*.csv
+*.tsv
+*.log
+*.out
+
+# 3. Block ALL text files inside data-heavy directories to prevent leaks
+results/**/*.txt
+libraries/**/*.txt
+targets/*/ligand_batches/**/*.txt
+
+# 4. Explicitly block known sensitive prefixes globally (Paranoia check)
+sorted_*.txt
+failed_*.txt
+*_show_jagdish.txt
+quick.txt

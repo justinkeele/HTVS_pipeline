@@ -1,0 +1,9 @@
+
+#Box center
+center_x = 175.84
+center_y = 381
+center_z = 262.31
+
+size_x = 20
+size_y = 15
+size_z = 17.5

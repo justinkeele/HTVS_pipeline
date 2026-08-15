@@ -1,0 +1,19 @@
+# Ignore massive result files and databases
+results/
+libraries/
+*.sdf
+*.pdbqt
+*.tar.gz
+*.zip
+*.csv
+*.tsv
+*.log
+
+# Keep code, scripts, configs, and notebooks
+!*.py
+!*.sh
+!*.ipynb
+!*.yml
+!*.yaml
+!*.txt
+!*.md

@@ -1,0 +1,9 @@
+# Search Space Center
+center_x = 202.71
+center_y = -137
+center_z = 143
+
+# Search Space Dimensions
+size_x = 15
+size_y = 20.5
+size_z = 16
