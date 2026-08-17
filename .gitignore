@@ -13,6 +13,9 @@ results/**/*.txt
 libraries/**/*.txt
 targets/*/ligand_batches/**/*.txt
 
+# Block the proprietary enamine diversity dataset
+Enamine_Discovery_Diversity_Set_50_plated_50240cmpds_20250330.sdf
+
 # 4. Explicitly block known sensitive prefixes globally (Paranoia check)
 sorted_*.txt
 failed_*.txt

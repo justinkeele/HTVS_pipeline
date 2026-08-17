@@ -55,8 +55,8 @@ fi
 if [ "$#" -lt 6 ]; then
     echo "=========================================================="
     echo " ERROR: Missing arguments"
-    echo " USAGE: ./GNINA_worker.sh <PROTIEN> <TARGET_ID> <EXHAUSTIVENESS> <CNN_SCORING> <GPU or CPU> <LIGAND_BATCH>"
-    echo " EXAMPLE: ./GNINA_worker.sh yef3 2IW3 16 rescore GPU test_batch"
+    echo " USAGE: ./GNINA_worker.sh <PROTIEN> <TARGET_ID> <EXHAUSTIVENESS> <CNN_SCORING> <GPU or CPU> <LIGAND_BATCH> [RUN_SUFFIX]"
+    echo " EXAMPLE: ./GNINA_worker.sh yef3 2IW3 16 rescore GPU test_batch run_1"
     echo "=========================================================="
     exit 1
 fi
@@ -68,6 +68,7 @@ EXHAUSTIVENESS="$3"
 CNN_SCORING="$4"
 HARDWARE_TYPE="$5"
 LIGAND_BATCH="$6"
+RUN_SUFFIX="${7:-default}"  # Use the 7th argument if provided, otherwise default to "default"
 #=====================================================
 # Validate Exhaustiveness 
 #=====================================================
@@ -79,9 +80,9 @@ if ! [[ "$EXHAUSTIVENESS" =~ ^[0-9]+$ ]]; then
 fi
 
 # Warn if exaustivness is outside recommended range
-if [ "$EXHAUSTIVENESS" -lt 8 ] || [ "$EXHAUSTIVENESS" -gt 32 ]; then
+if [ "$EXHAUSTIVENESS" -lt 8 ] || [ "$EXHAUSTIVENESS" -gt 64 ]; then
     echo "WARNING: EXHAUSTIVENESS is set to $EXHAUSTIVENESS."
-    echo "Values below 8 may result in poor poses. Values above 32 are computationally expensive with diminishing returns."
+    echo "Values below 8 may result in poor poses. Values above 64 are computationally expensive with diminishing returns."
     sleep 4 # Pause briefly so the user sees the warning
 fi
 
@@ -107,11 +108,11 @@ export batches_dir_path="${WORKSPACE_DIR}/targets/${TARGET_ID}/ligand_batches/${
 case "$POCKET" in
     "7B7D_HEAT")
         export receptor_path="${WORKSPACE_DIR}/targets/${TARGET_ID}/receptors/7B7D_72pH.pdbqt"
-        export config_gnina_path="${WORKSPACE_DIR}/targets/${TARGET_ID}/configs/gnina/7B7D_HEAT_config.txt"
+        export config_gnina_path="${WORKSPACE_DIR}/targets/${TARGET_ID}/configs/gnina/7B7D_HEAT_gnina_test_config.txt"
         ;;
     "7B7D_far")
         export receptor_path="${WORKSPACE_DIR}/targets/${TARGET_ID}/receptors/7B7D_72pH.pdbqt"
-        export config_gnina_path="${WORKSPACE_DIR}/targets/${TARGET_ID}/configs/gnina/7B7D_far_config.txt"
+        export config_gnina_path="${WORKSPACE_DIR}/targets/${TARGET_ID}/configs/gnina/7B7D_far_gnina_test_config.txt"
         ;;
     "2IW3")
         export receptor_path="${WORKSPACE_DIR}/targets/${TARGET_ID}/receptors/2IW3_47pH.pdbqt"
@@ -126,7 +127,7 @@ esac
 # Run names and directory setup
 #=====================================================
 
-export run_name="${POCKET}_ex${EXHAUSTIVENESS}_${CNN_SCORING}_${HARDWARE_TYPE}"
+export run_name="${POCKET}_ex${EXHAUSTIVENESS}_${CNN_SCORING}_${HARDWARE_TYPE}_${RUN_SUFFIX}"
 export output_dir="${WORKSPACE_DIR}/results/${TARGET_ID}/gnina/${run_name}"
 export meeko_temp="${output_dir}/meeko_temp"
 

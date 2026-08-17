@@ -1,0 +1,12 @@
+yef3 7B7D_HEAT 128 rescore GPU base_test_batch
+yef3 7B7D_far 128 rescore GPU base_test_batch
+yef3 7B7D_HEAT 64 rescore GPU base_test_batch
+yef3 7B7D_far 64 rescore GPU base_test_batch
+yef3 7B7D_HEAT 32 rescore GPU base_test_batch
+yef3 7B7D_far 32 rescore GPU base_test_batch
+yef3 7B7D_HEAT 16 rescore GPU base_test_batch
+yef3 7B7D_far 16 rescore GPU base_test_batch
+yef3 7B7D_HEAT 16 refinement GPU base_test_batch
+yef3 7B7D_far 16 refinement GPU base_test_batch
+yef3 7B7D_HEAT 32 refinement GPU base_test_batch
+yef3 7B7D_far 32 refinement GPU base_test_batch

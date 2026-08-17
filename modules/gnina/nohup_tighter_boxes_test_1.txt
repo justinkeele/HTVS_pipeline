@@ -1,0 +1,1238 @@
+==========================================================
+ Starting orchestrator with run list: rerun.txt
+==========================================================
+ 
+>>> [Job 1] ./GNINA_worker.sh yef3 7B7D_HEAT 8 refinement GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+starting gnina for: tophit_high_Z2358764460
+starting gnina for: Z2188079711
+starting gnina for: tophit_high_Z2055173767
+starting gnina for: no_inhibiton_Z1523161666
+starting gnina for: tophit_low_Z2884742281
+starting gnina for: tophit_low_Z2798535456
+starting gnina for: Z2188077091
+starting gnina for: ADP
+starting gnina for: ATP
+starting gnina for: no_inhibiton_Z3799719374
+starting gnina for: tophit_high_Z2445067138
+starting gnina for: Z2188074555
+starting gnina for: tophit_low_Z1156003921
+starting gnina for: Z2184037072
+starting gnina for: Z1266328514
+starting gnina for: tophit_high_Z2874248678
+starting gnina for: Z1267337443
+starting gnina for: tophit_low_Z2873538964
+starting gnina for: Z1268406728
+starting gnina for: Z1473943037
+starting gnina for: no_inhibiton_Z31347727
+starting gnina for: Z1265739618
+starting gnina for: tophit_high_Z1711599189
+starting gnina for: Z1268242812
+Batch 1 completed in 00:59:40
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_HEAT_ex8_refinement_GPU           |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  0 seconds                              |
+| Avg Time / Molecule:  583.96 seconds                         |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  16.5 cores                             |
+| Avg CPU Cores Used:   4.7 cores                              |
+| Peak System RAM:      4267.2 MB                              |
+| Peak GPU VRAM:        1619 MB                                |
+| Avg GPU Utilization:  99.5%                                  |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:59:40
+>>> [Job 1] Finished successfully.
+==========================================================
+ Orchestrator finished processing jobs in rerun.txt.
+==========================================================
+==========================================================
+ Starting orchestrator with run list: tighter_boxes.txt
+==========================================================
+ 
+>>> [Job 1] ./GNINA_worker.sh yef3 7B7D_HEAT 128 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+WARNING: EXHAUSTIVENESS is set to 128.
+Values below 8 may result in poor poses. Values above 64 are computationally expensive with diminishing returns.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+starting gnina for: tophit_high_Z2358764460
+starting gnina for: tophit_high_Z2055173767
+starting gnina for: Z2188079711
+starting gnina for: no_inhibiton_Z1523161666
+starting gnina for: tophit_low_Z2884742281
+starting gnina for: tophit_low_Z2798535456
+starting gnina for: Z2188077091
+starting gnina for: ADP
+starting gnina for: ATP
+starting gnina for: no_inhibiton_Z3799719374
+starting gnina for: tophit_high_Z2445067138
+starting gnina for: Z2188074555
+starting gnina for: tophit_low_Z1156003921
+starting gnina for: Z2184037072
+starting gnina for: Z1266328514
+starting gnina for: tophit_high_Z2874248678
+starting gnina for: Z1267337443
+starting gnina for: tophit_low_Z2873538964
+starting gnina for: Z1268406728
+starting gnina for: Z1473943037
+starting gnina for: no_inhibiton_Z31347727
+starting gnina for: Z1265739618
+starting gnina for: tophit_high_Z1711599189
+starting gnina for: Z1268242812
+Batch 1 completed in 00:20:33
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_HEAT_ex128_rescore_GPU            |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  1 seconds                              |
+| Avg Time / Molecule:  144.00 seconds                         |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  19.7 cores                             |
+| Avg CPU Cores Used:   13.3 cores                             |
+| Peak System RAM:      3049.3 MB                              |
+| Peak GPU VRAM:        690 MB                                 |
+| Avg GPU Utilization:  0.3%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:20:38
+>>> [Job 1] Finished successfully.
+ 
+>>> [Job 2] ./GNINA_worker.sh yef3 7B7D_far 128 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+WARNING: EXHAUSTIVENESS is set to 128.
+Values below 8 may result in poor poses. Values above 64 are computationally expensive with diminishing returns.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+starting gnina for: tophit_high_Z2358764460
+starting gnina for: Z2188079711
+starting gnina for: tophit_high_Z2055173767
+starting gnina for: no_inhibiton_Z1523161666
+starting gnina for: tophit_low_Z2884742281
+starting gnina for: tophit_low_Z2798535456
+starting gnina for: Z2188077091
+starting gnina for: ADP
+starting gnina for: ATP
+starting gnina for: no_inhibiton_Z3799719374
+starting gnina for: tophit_high_Z2445067138
+starting gnina for: Z2188074555
+starting gnina for: tophit_low_Z1156003921
+starting gnina for: Z2184037072
+starting gnina for: Z1266328514
+starting gnina for: tophit_high_Z2874248678
+starting gnina for: Z1267337443
+starting gnina for: tophit_low_Z2873538964
+starting gnina for: Z1268406728
+starting gnina for: Z1473943037
+starting gnina for: no_inhibiton_Z31347727
+starting gnina for: Z1265739618
+starting gnina for: tophit_high_Z1711599189
+starting gnina for: Z1268242812
+Batch 1 completed in 00:23:05
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_far_ex128_rescore_GPU             |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  1 seconds                              |
+| Avg Time / Molecule:  162.66 seconds                         |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  19.8 cores                             |
+| Avg CPU Cores Used:   13.4 cores                             |
+| Peak System RAM:      3087.5 MB                              |
+| Peak GPU VRAM:        690 MB                                 |
+| Avg GPU Utilization:  0.2%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:23:09
+>>> [Job 2] Finished successfully.
+ 
+>>> [Job 3] ./GNINA_worker.sh yef3 7B7D_HEAT 64 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+starting gnina for: Z2188079711
+starting gnina for: tophit_high_Z2358764460
+starting gnina for: tophit_high_Z2055173767
+starting gnina for: no_inhibiton_Z1523161666
+starting gnina for: tophit_low_Z2884742281
+starting gnina for: tophit_low_Z2798535456
+starting gnina for: Z2188077091
+starting gnina for: ADP
+starting gnina for: ATP
+starting gnina for: no_inhibiton_Z3799719374
+starting gnina for: tophit_high_Z2445067138
+starting gnina for: Z2188074555
+starting gnina for: tophit_low_Z1156003921
+starting gnina for: Z2184037072
+starting gnina for: Z1266328514
+starting gnina for: tophit_high_Z2874248678
+starting gnina for: Z1267337443
+starting gnina for: tophit_low_Z2873538964
+starting gnina for: Z1268406728
+starting gnina for: Z1473943037
+starting gnina for: no_inhibiton_Z31347727
+starting gnina for: Z1265739618
+starting gnina for: tophit_high_Z1711599189
+starting gnina for: Z1268242812
+Batch 1 completed in 00:10:35
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_HEAT_ex64_rescore_GPU             |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  1 seconds                              |
+| Avg Time / Molecule:  76.49 seconds                          |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  19.6 cores                             |
+| Avg CPU Cores Used:   13.4 cores                             |
+| Peak System RAM:      2894.0 MB                              |
+| Peak GPU VRAM:        690 MB                                 |
+| Avg GPU Utilization:  0.6%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:10:35
+>>> [Job 3] Finished successfully.
+ 
+>>> [Job 4] ./GNINA_worker.sh yef3 7B7D_far 64 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+starting gnina for: Z2188079711
+starting gnina for: tophit_high_Z2358764460
+starting gnina for: tophit_high_Z2055173767
+starting gnina for: no_inhibiton_Z1523161666
+starting gnina for: tophit_low_Z2884742281
+starting gnina for: tophit_low_Z2798535456
+starting gnina for: Z2188077091
+starting gnina for: ADP
+starting gnina for: ATP
+starting gnina for: no_inhibiton_Z3799719374
+starting gnina for: tophit_high_Z2445067138
+starting gnina for: Z2188074555
+starting gnina for: tophit_low_Z1156003921
+starting gnina for: Z2184037072
+starting gnina for: Z1266328514
+starting gnina for: tophit_high_Z2874248678
+starting gnina for: Z1267337443
+starting gnina for: tophit_low_Z2873538964
+starting gnina for: Z1268406728
+starting gnina for: Z1473943037
+starting gnina for: no_inhibiton_Z31347727
+starting gnina for: Z1265739618
+starting gnina for: tophit_high_Z1711599189
+starting gnina for: Z1268242812
+Batch 1 completed in 00:11:11
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_far_ex64_rescore_GPU              |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  0 seconds                              |
+| Avg Time / Molecule:  80.94 seconds                          |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  19.6 cores                             |
+| Avg CPU Cores Used:   13.5 cores                             |
+| Peak System RAM:      2554.4 MB                              |
+| Peak GPU VRAM:        596 MB                                 |
+| Avg GPU Utilization:  0.5%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:11:11
+>>> [Job 4] Finished successfully.
+ 
+>>> [Job 5] ./GNINA_worker.sh yef3 7B7D_HEAT 32 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+starting gnina for: tophit_high_Z2358764460
+starting gnina for: Z2188079711
+starting gnina for: tophit_high_Z2055173767
+starting gnina for: no_inhibiton_Z1523161666
+starting gnina for: tophit_low_Z2884742281
+starting gnina for: tophit_low_Z2798535456
+starting gnina for: Z2188077091
+starting gnina for: ADP
+starting gnina for: ATP
+starting gnina for: no_inhibiton_Z3799719374
+starting gnina for: tophit_high_Z2445067138
+starting gnina for: Z2188074555
+starting gnina for: tophit_low_Z1156003921
+starting gnina for: Z2184037072
+starting gnina for: Z1266328514
+starting gnina for: tophit_high_Z2874248678
+starting gnina for: Z1267337443
+starting gnina for: tophit_low_Z2873538964
+starting gnina for: Z1268406728
+starting gnina for: Z1473943037
+starting gnina for: no_inhibiton_Z31347727
+starting gnina for: Z1265739618
+starting gnina for: tophit_high_Z1711599189
+starting gnina for: Z1268242812
+Batch 1 completed in 00:05:26
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_HEAT_ex32_rescore_GPU             |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  1 seconds                              |
+| Avg Time / Molecule:  38.60 seconds                          |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  19.4 cores                             |
+| Avg CPU Cores Used:   12.7 cores                             |
+| Peak System RAM:      2798.0 MB                              |
+| Peak GPU VRAM:        750 MB                                 |
+| Avg GPU Utilization:  1.5%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:05:26
+>>> [Job 5] Finished successfully.
+ 
+>>> [Job 6] ./GNINA_worker.sh yef3 7B7D_far 32 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+starting gnina for: tophit_high_Z2358764460
+starting gnina for: Z2188079711
+starting gnina for: tophit_high_Z2055173767
+starting gnina for: no_inhibiton_Z1523161666
+starting gnina for: tophit_low_Z2884742281
+starting gnina for: tophit_low_Z2798535456
+starting gnina for: Z2188077091
+starting gnina for: ADP
+starting gnina for: ATP
+starting gnina for: no_inhibiton_Z3799719374
+starting gnina for: tophit_high_Z2445067138
+starting gnina for: Z2188074555
+starting gnina for: tophit_low_Z1156003921
+starting gnina for: Z2184037072
+starting gnina for: Z1266328514
+starting gnina for: tophit_high_Z2874248678
+starting gnina for: Z1267337443
+starting gnina for: tophit_low_Z2873538964
+starting gnina for: Z1268406728
+starting gnina for: Z1473943037
+starting gnina for: no_inhibiton_Z31347727
+starting gnina for: Z1265739618
+starting gnina for: tophit_high_Z1711599189
+starting gnina for: Z1268242812
+Batch 1 completed in 00:05:59
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_far_ex32_rescore_GPU              |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  0 seconds                              |
+| Avg Time / Molecule:  42.12 seconds                          |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  19.3 cores                             |
+| Avg CPU Cores Used:   12.6 cores                             |
+| Peak System RAM:      2747.1 MB                              |
+| Peak GPU VRAM:        690 MB                                 |
+| Avg GPU Utilization:  1.0%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:06:00
+>>> [Job 6] Finished successfully.
+ 
+>>> [Job 7] ./GNINA_worker.sh yef3 7B7D_HEAT 16 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+starting gnina for: tophit_high_Z2358764460
+starting gnina for: Z2188079711
+starting gnina for: tophit_high_Z2055173767
+starting gnina for: no_inhibiton_Z1523161666
+starting gnina for: tophit_low_Z2884742281
+starting gnina for: tophit_low_Z2798535456
+starting gnina for: Z2188077091
+starting gnina for: ADP
+starting gnina for: ATP
+starting gnina for: no_inhibiton_Z3799719374
+starting gnina for: tophit_high_Z2445067138
+starting gnina for: Z2188074555
+starting gnina for: tophit_low_Z1156003921
+starting gnina for: Z2184037072
+starting gnina for: Z1266328514
+starting gnina for: tophit_high_Z2874248678
+starting gnina for: Z1267337443
+starting gnina for: tophit_low_Z2873538964
+starting gnina for: Z1268406728
+starting gnina for: Z1473943037
+starting gnina for: no_inhibiton_Z31347727
+starting gnina for: Z1265739618
+starting gnina for: tophit_high_Z1711599189
+starting gnina for: Z1268242812
+Batch 1 completed in 00:02:54
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_HEAT_ex16_rescore_GPU             |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  1 seconds                              |
+| Avg Time / Molecule:  20.68 seconds                          |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  18.2 cores                             |
+| Avg CPU Cores Used:   11.8 cores                             |
+| Peak System RAM:      2768.5 MB                              |
+| Peak GPU VRAM:        690 MB                                 |
+| Avg GPU Utilization:  1.7%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:02:54
+>>> [Job 7] Finished successfully.
+ 
+>>> [Job 8] ./GNINA_worker.sh yef3 7B7D_far 16 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+starting gnina for: tophit_high_Z2358764460
+starting gnina for: Z2188079711
+starting gnina for: tophit_high_Z2055173767
+starting gnina for: no_inhibiton_Z1523161666
+starting gnina for: tophit_low_Z2884742281
+starting gnina for: tophit_low_Z2798535456
+starting gnina for: Z2188077091
+starting gnina for: ADP
+starting gnina for: ATP
+starting gnina for: no_inhibiton_Z3799719374
+starting gnina for: tophit_high_Z2445067138
+starting gnina for: Z2188074555
+starting gnina for: tophit_low_Z1156003921
+starting gnina for: Z2184037072
+starting gnina for: Z1266328514
+starting gnina for: tophit_high_Z2874248678
+starting gnina for: Z1267337443
+starting gnina for: tophit_low_Z2873538964
+starting gnina for: Z1268406728
+starting gnina for: Z1473943037
+starting gnina for: no_inhibiton_Z31347727
+starting gnina for: Z1265739618
+starting gnina for: tophit_high_Z1711599189
+starting gnina for: Z1268242812
+Batch 1 completed in 00:03:04
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_far_ex16_rescore_GPU              |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  1 seconds                              |
+| Avg Time / Molecule:  21.94 seconds                          |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  18.6 cores                             |
+| Avg CPU Cores Used:   12.0 cores                             |
+| Peak System RAM:      2633.5 MB                              |
+| Peak GPU VRAM:        670 MB                                 |
+| Avg GPU Utilization:  2.1%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:03:04
+>>> [Job 8] Finished successfully.
+ 
+>>> [Job 9] ./GNINA_worker.sh yef3 7B7D_HEAT 16 refinement GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+Batch 1 completed in 00:00:00
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_HEAT_ex16_refinement_GPU          |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  0 seconds                              |
+| Avg Time / Molecule:  613.46 seconds                         |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  0.0 cores                              |
+| Avg CPU Cores Used:   0.0 cores                              |
+| Peak System RAM:      14.7 MB                                |
+| Peak GPU VRAM:        15 MB                                  |
+| Avg GPU Utilization:  0.0%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:00:01
+>>> [Job 9] Finished successfully.
+ 
+>>> [Job 10] ./GNINA_worker.sh yef3 7B7D_far 16 refinement GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+Batch 1 completed in 00:00:01
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_far_ex16_refinement_GPU           |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  1 seconds                              |
+| Avg Time / Molecule:  2763.72 seconds                        |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  0.0 cores                              |
+| Avg CPU Cores Used:   0.0 cores                              |
+| Peak System RAM:      14.6 MB                                |
+| Peak GPU VRAM:        15 MB                                  |
+| Avg GPU Utilization:  0.0%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:00:01
+>>> [Job 10] Finished successfully.
+ 
+>>> [Job 11] ./GNINA_worker.sh yef3 7B7D_HEAT 32 refinement GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+Batch 1 completed in 00:00:01
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_HEAT_ex32_refinement_GPU          |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  1 seconds                              |
+| Avg Time / Molecule:  632.29 seconds                         |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  0.0 cores                              |
+| Avg CPU Cores Used:   0.0 cores                              |
+| Peak System RAM:      14.6 MB                                |
+| Peak GPU VRAM:        15 MB                                  |
+| Avg GPU Utilization:  0.0%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:00:01
+>>> [Job 11] Finished successfully.
+ 
+>>> [Job 12] ./GNINA_worker.sh yef3 7B7D_far 32 refinement GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+Batch 1 completed in 00:00:00
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_far_ex32_refinement_GPU           |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  0 seconds                              |
+| Avg Time / Molecule:  2739.69 seconds                        |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  0.0 cores                              |
+| Avg CPU Cores Used:   0.0 cores                              |
+| Peak System RAM:      14.6 MB                                |
+| Peak GPU VRAM:        15 MB                                  |
+| Avg GPU Utilization:  0.0%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:00:01
+>>> [Job 12] Finished successfully.
+==========================================================
+ Orchestrator finished processing jobs in tighter_boxes.txt.
+==========================================================
+==========================================================
+ Starting orchestrator with run list: tighter_boxes.txt
+==========================================================
+ 
+>>> [Job 1] ./GNINA_worker.sh yef3 7B7D_HEAT 128 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+WARNING: EXHAUSTIVENESS is set to 128.
+Values below 8 may result in poor poses. Values above 64 are computationally expensive with diminishing returns.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+Batch 1 completed in 00:00:01
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_HEAT_ex128_rescore_GPU            |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  1 seconds                              |
+| Avg Time / Molecule:  144.00 seconds                         |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  0.0 cores                              |
+| Avg CPU Cores Used:   0.0 cores                              |
+| Peak System RAM:      0.0 MB                                 |
+| Peak GPU VRAM:        0 MB                                   |
+| Avg GPU Utilization:  0.0%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:00:05
+>>> [Job 1] Finished successfully.
+ 
+>>> [Job 2] ./GNINA_worker.sh yef3 7B7D_far 128 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+WARNING: EXHAUSTIVENESS is set to 128.
+Values below 8 may result in poor poses. Values above 64 are computationally expensive with diminishing returns.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+Batch 1 completed in 00:00:00
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_far_ex128_rescore_GPU             |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  0 seconds                              |
+| Avg Time / Molecule:  162.66 seconds                         |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  0.0 cores                              |
+| Avg CPU Cores Used:   0.0 cores                              |
+| Peak System RAM:      14.7 MB                                |
+| Peak GPU VRAM:        15 MB                                  |
+| Avg GPU Utilization:  0.0%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:00:05
+>>> [Job 2] Finished successfully.
+ 
+>>> [Job 3] ./GNINA_worker.sh yef3 7B7D_HEAT 64 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+Batch 1 completed in 00:00:00
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_HEAT_ex64_rescore_GPU             |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  0 seconds                              |
+| Avg Time / Molecule:  76.49 seconds                          |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  0.0 cores                              |
+| Avg CPU Cores Used:   0.0 cores                              |
+| Peak System RAM:      14.8 MB                                |
+| Peak GPU VRAM:        15 MB                                  |
+| Avg GPU Utilization:  0.0%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:00:00
+>>> [Job 3] Finished successfully.
+ 
+>>> [Job 4] ./GNINA_worker.sh yef3 7B7D_far 64 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+Batch 1 completed in 00:00:00
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_far_ex64_rescore_GPU              |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  0 seconds                              |
+| Avg Time / Molecule:  80.94 seconds                          |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  0.0 cores                              |
+| Avg CPU Cores Used:   0.0 cores                              |
+| Peak System RAM:      14.8 MB                                |
+| Peak GPU VRAM:        15 MB                                  |
+| Avg GPU Utilization:  0.0%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:00:01
+>>> [Job 4] Finished successfully.
+ 
+>>> [Job 5] ./GNINA_worker.sh yef3 7B7D_HEAT 32 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+Batch 1 completed in 00:00:01
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_HEAT_ex32_rescore_GPU             |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  1 seconds                              |
+| Avg Time / Molecule:  38.60 seconds                          |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  0.0 cores                              |
+| Avg CPU Cores Used:   0.0 cores                              |
+| Peak System RAM:      14.7 MB                                |
+| Peak GPU VRAM:        15 MB                                  |
+| Avg GPU Utilization:  0.0%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:00:01
+>>> [Job 5] Finished successfully.
+ 
+>>> [Job 6] ./GNINA_worker.sh yef3 7B7D_far 32 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+Batch 1 completed in 00:00:01
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_far_ex32_rescore_GPU              |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  1 seconds                              |
+| Avg Time / Molecule:  42.12 seconds                          |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  0.0 cores                              |
+| Avg CPU Cores Used:   0.0 cores                              |
+| Peak System RAM:      14.7 MB                                |
+| Peak GPU VRAM:        15 MB                                  |
+| Avg GPU Utilization:  0.0%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:00:01
+>>> [Job 6] Finished successfully.
+ 
+>>> [Job 7] ./GNINA_worker.sh yef3 7B7D_HEAT 16 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+Batch 1 completed in 00:00:00
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_HEAT_ex16_rescore_GPU             |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  0 seconds                              |
+| Avg Time / Molecule:  20.68 seconds                          |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  0.0 cores                              |
+| Avg CPU Cores Used:   0.0 cores                              |
+| Peak System RAM:      14.9 MB                                |
+| Peak GPU VRAM:        15 MB                                  |
+| Avg GPU Utilization:  0.0%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:00:01
+>>> [Job 7] Finished successfully.
+ 
+>>> [Job 8] ./GNINA_worker.sh yef3 7B7D_far 16 rescore GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+Batch 1 completed in 00:00:00
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_far_ex16_rescore_GPU              |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  0 seconds                              |
+| Avg Time / Molecule:  21.94 seconds                          |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  0.0 cores                              |
+| Avg CPU Cores Used:   0.0 cores                              |
+| Peak System RAM:      14.7 MB                                |
+| Peak GPU VRAM:        15 MB                                  |
+| Avg GPU Utilization:  0.0%                                   |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 00:00:00
+>>> [Job 8] Finished successfully.
+ 
+>>> [Job 9] ./GNINA_worker.sh yef3 7B7D_HEAT 16 refinement GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+starting gnina for: tophit_high_Z2358764460
+starting gnina for: Z2188079711
+starting gnina for: tophit_high_Z2055173767
+starting gnina for: no_inhibiton_Z1523161666
+starting gnina for: tophit_low_Z2884742281
+starting gnina for: tophit_low_Z2798535456
+starting gnina for: Z2188077091
+starting gnina for: ADP
+starting gnina for: ATP
+starting gnina for: no_inhibiton_Z3799719374
+starting gnina for: tophit_high_Z2445067138
+starting gnina for: Z2188074555
+starting gnina for: tophit_low_Z1156003921
+starting gnina for: Z2184037072
+starting gnina for: Z1266328514
+starting gnina for: tophit_high_Z2874248678
+starting gnina for: Z1267337443
+starting gnina for: tophit_low_Z2873538964
+starting gnina for: Z1268406728
+starting gnina for: Z1473943037
+starting gnina for: no_inhibiton_Z31347727
+starting gnina for: Z1265739618
+starting gnina for: tophit_high_Z1711599189
+starting gnina for: Z1268242812
+Batch 1 completed in 01:02:44
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_HEAT_ex16_refinement_GPU          |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  0 seconds                              |
+| Avg Time / Molecule:  609.98 seconds                         |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  18.0 cores                             |
+| Avg CPU Cores Used:   5.1 cores                              |
+| Peak System RAM:      4262.3 MB                              |
+| Peak GPU VRAM:        1214 MB                                |
+| Avg GPU Utilization:  99.6%                                  |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 01:02:45
+>>> [Job 9] Finished successfully.
+ 
+>>> [Job 10] ./GNINA_worker.sh yef3 7B7D_far 16 refinement GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+starting gnina for: tophit_high_Z2358764460
+starting gnina for: Z2188079711
+starting gnina for: tophit_high_Z2055173767
+starting gnina for: no_inhibiton_Z1523161666
+starting gnina for: tophit_low_Z2884742281
+starting gnina for: tophit_low_Z2798535456
+starting gnina for: Z2188077091
+starting gnina for: ADP
+starting gnina for: ATP
+starting gnina for: no_inhibiton_Z3799719374
+starting gnina for: tophit_high_Z2445067138
+starting gnina for: Z2188074555
+starting gnina for: tophit_low_Z1156003921
+starting gnina for: Z2184037072
+starting gnina for: Z1266328514
+starting gnina for: tophit_high_Z2874248678
+starting gnina for: Z1267337443
+starting gnina for: tophit_low_Z2873538964
+starting gnina for: Z1268406728
+starting gnina for: Z1473943037
+starting gnina for: no_inhibiton_Z31347727
+starting gnina for: Z1265739618
+starting gnina for: tophit_high_Z1711599189
+starting gnina for: Z1268242812
+Batch 1 completed in 01:07:27
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_far_ex16_refinement_GPU           |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  0 seconds                              |
+| Avg Time / Molecule:  655.41 seconds                         |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  18.4 cores                             |
+| Avg CPU Cores Used:   5.0 cores                              |
+| Peak System RAM:      4285.1 MB                              |
+| Peak GPU VRAM:        1214 MB                                |
+| Avg GPU Utilization:  99.5%                                  |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 01:07:27
+>>> [Job 10] Finished successfully.
+ 
+>>> [Job 11] ./GNINA_worker.sh yef3 7B7D_HEAT 32 refinement GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+starting gnina for: tophit_high_Z2358764460
+starting gnina for: Z2188079711
+starting gnina for: tophit_high_Z2055173767
+starting gnina for: no_inhibiton_Z1523161666
+starting gnina for: tophit_low_Z2884742281
+starting gnina for: tophit_low_Z2798535456
+starting gnina for: Z2188077091
+starting gnina for: ADP
+starting gnina for: ATP
+starting gnina for: no_inhibiton_Z3799719374
+starting gnina for: tophit_high_Z2445067138
+starting gnina for: Z2188074555
+starting gnina for: tophit_low_Z1156003921
+starting gnina for: Z2184037072
+starting gnina for: Z1266328514
+starting gnina for: tophit_high_Z2874248678
+starting gnina for: Z1267337443
+starting gnina for: tophit_low_Z2873538964
+starting gnina for: Z1268406728
+starting gnina for: Z1473943037
+starting gnina for: no_inhibiton_Z31347727
+starting gnina for: Z1265739618
+starting gnina for: tophit_high_Z1711599189
+starting gnina for: Z1268242812
+Batch 1 completed in 01:04:47
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_HEAT_ex32_refinement_GPU          |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  1 seconds                              |
+| Avg Time / Molecule:  630.93 seconds                         |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  19.1 cores                             |
+| Avg CPU Cores Used:   6.0 cores                              |
+| Peak System RAM:      4264.4 MB                              |
+| Peak GPU VRAM:        1214 MB                                |
+| Avg GPU Utilization:  99.2%                                  |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 01:04:47
+>>> [Job 11] Finished successfully.
+ 
+>>> [Job 12] ./GNINA_worker.sh yef3 7B7D_far 32 refinement GPU base_test_batch
+WARNING: overwriting environment variables set in the machine
+overwriting variable ['LD_LIBRARY_PATH']
+No SLURM detected, running with 20 cores.
+sacrificing ligands to the machine gods, this may take a while...
+=================================
+|       Starting batch 1       |
+=================================
+Exploding batch 1 with meeko
+Input molecules processed: 24, skipped: 0
+PDBQT files written: 24
+PDBQT files not written due to error: 0
+Input molecules with errors: 0
+No duplicate molecule molecule names were found
+Docking batch 1 in Gnina
+starting gnina for: tophit_high_Z2358764460
+starting gnina for: Z2188079711
+starting gnina for: tophit_high_Z2055173767
+starting gnina for: no_inhibiton_Z1523161666
+starting gnina for: tophit_low_Z2884742281
+starting gnina for: tophit_low_Z2798535456
+starting gnina for: Z2188077091
+starting gnina for: ADP
+starting gnina for: ATP
+starting gnina for: no_inhibiton_Z3799719374
+starting gnina for: tophit_high_Z2445067138
+starting gnina for: Z2188074555
+starting gnina for: tophit_low_Z1156003921
+starting gnina for: Z2184037072
+starting gnina for: Z1266328514
+starting gnina for: tophit_high_Z2874248678
+starting gnina for: Z1267337443
+starting gnina for: tophit_low_Z2873538964
+starting gnina for: Z1268406728
+starting gnina for: Z1473943037
+starting gnina for: no_inhibiton_Z31347727
+starting gnina for: Z1265739618
+starting gnina for: tophit_high_Z1711599189
+starting gnina for: Z1268242812
+Batch 1 completed in 01:07:05
+ 
+|----------------------------------------------------------------|
+| Run Name:             7B7D_far_ex32_refinement_GPU           |
+| Hardware Environment: This script is running on: justin-Legion-5-16IAX10 (Allocated Cores: 20) |
+|----------------------------------------------------------------|
+| Total Mols:           24                                     |
+| Init. Overhead Time:  1 seconds                              |
+| Avg Time / Molecule:  650.35 seconds                         |
+|----------------------------------------------------------------|
+| Peak CPU Cores Used:  19.2 cores                             |
+| Avg CPU Cores Used:   6.0 cores                              |
+| Peak System RAM:      4279.4 MB                              |
+| Peak GPU VRAM:        1214 MB                                |
+| Avg GPU Utilization:  99.2%                                  |
+|----------------------------------------------------------------|
+ 
+======================================================================
+Total run time: 01:07:05
+>>> [Job 12] Finished successfully.
+==========================================================
+ Orchestrator finished processing jobs in tighter_boxes.txt.
+==========================================================
