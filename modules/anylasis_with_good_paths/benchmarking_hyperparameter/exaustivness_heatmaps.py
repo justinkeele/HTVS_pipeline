@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from matplotlib.colors import TwoSlopeNorm, LinearSegmentedColormap
 from rdkit.ML.Scoring import Scoring
 
 # 1. Configuration & Paths
@@ -70,9 +71,8 @@ def process_data():
     master_df = master_df.merge(df_vina, on=['Ligand', 'Run_Name', 'Pocket', 'Exhaustiveness', 'Mode', 'Hardware', 'Test_Version'])
 
     # 2. Filter & Clean
-    # Drop ATP and ADP, and keep only the HEAT pocket
+    # Drop ATP and ADP; keep all pockets so we can plot multiple pockets as rows
     master_df = master_df[~master_df['Ligand'].isin(['ATP', 'ADP'])]
-    master_df = master_df[master_df['Pocket'] == '7B7D_HEAT']
 
     # NEW: Standardize Vina Affinity direction by multiplying by -1
     # Now, higher is better for ALL metrics.
@@ -100,8 +100,13 @@ def process_data():
         group['Norm_CNN_Pose'] = min_max_normalize(group['CNN_Pose_Score'])
         group['Norm_Vina'] = min_max_normalize(group['Vina_Affinity'])
         
-        # Calculate Consensus Score by averaging the three normalized raw scores
-        group['Consensus'] = group[['Norm_CNN_Aff', 'Norm_CNN_Pose', 'Norm_Vina']].mean(axis=1)
+        # Calculate Weighted Consensus Score:
+        # Give more weight to Pose (0.45), moderate weight to Vina (0.30), and less to Affinity (0.25)
+        group['Consensus'] = (
+            (0.25 * group['Norm_CNN_Aff']) + 
+            (0.45 * group['Norm_CNN_Pose']) + 
+            (0.30 * group['Norm_Vina'])
+        )
 
         # 4. Calculate BEDROC and NDCG for each metric
         # Because we flipped Vina, ALL metrics now sort Descending (False) where Higher = Better
@@ -127,6 +132,7 @@ def process_data():
 
             results.append({
                 'Test_Version': str(test_ver),
+                'Pocket': group['Pocket'].iloc[0],
                 'X_Label': x_label,
                 'Metric': metric_name,
                 'BEDROC': bedroc_score,
@@ -138,47 +144,86 @@ def process_data():
 def plot_heatmaps(results_df):
     print("Generating Heatmap Grid...")
     
-    # Set up a 2x2 grid
+    # Set up a 3x2 grid: rows are pockets (HEAT, far, 2IW3), cols are [BEDROC, NDCG]
     sns.set_theme(style="white")
-    fig, axes = plt.subplots(2, 2, figsize=(16, 10), sharex=True, sharey=True)
-    
-    # Define the 4 panels
-    panels = [
-        {'test_ver': '2', 'score_type': 'BEDROC', 'ax': axes[0, 0], 'title': 'Test 2 - BEDROC (Alpha=8)'},
-        {'test_ver': '2', 'score_type': 'NDCG', 'ax': axes[0, 1], 'title': 'Test 2 - NDCG'},
-        {'test_ver': '3', 'score_type': 'BEDROC', 'ax': axes[1, 0], 'title': 'Test 3 - BEDROC (Alpha=8)'},
-        {'test_ver': '3', 'score_type': 'NDCG', 'ax': axes[1, 1], 'title': 'Test 3 - NDCG'}
+    pockets = [
+        ('7B7D_HEAT', 'HEAT'),
+        ('7B7D_far', 'Far'),
+        ('2IW3', '2IW3')
     ]
+    score_types = ['BEDROC', 'NDCG']
 
-    for p in panels:
-        # Filter the data for this specific panel
-        subset = results_df[results_df['Test_Version'] == p['test_ver']]
-        
-        # Pivot the data so X_Labels are columns and Metrics are rows
-        matrix = subset.pivot(index='Metric', columns='X_Label', values=p['score_type'])
-        
-        # Reorder the matrix to match our desired layout perfectly
-        matrix = matrix.reindex(index=Y_AXIS_ORDER, columns=X_AXIS_ORDER)
+    fig, axes = plt.subplots(len(pockets), len(score_types), figsize=(16, 12), sharex=True, sharey=True)
 
-        # Draw the Heatmap. 
-        # cmap="Blues" means Dark Blue = Good Score (1.0), Light Blue = Bad Score (0.0)
-        sns.heatmap(
-            matrix, ax=p['ax'], cmap="Blues", annot=True, fmt=".2f", 
-            vmin=0.0, vmax=1.0, linewidths=1, linecolor='gray',
-            cbar_kws={'label': p['score_type']}
-        )
-        
-        p['ax'].set_title(p['title'], fontsize=14, weight='bold', pad=15)
-        p['ax'].set_ylabel("")
-        p['ax'].set_xlabel("")
-        p['ax'].tick_params(axis='x', rotation=45)
-        
-        # THE VERTICAL LINE TRICK: Draw a thick white line to separate rescore from refinement
-        # Because we added rescore_ex8, rescore now has 5 columns. We draw the line at index 5.
-        p['ax'].axvline(x=5, color='black', linewidth=6)
+    # Pre-select rows: for each Pocket/X_Label/Metric pick the row with the highest Test_Version
+    df = results_df.copy()
+    df['Test_Version_int'] = df['Test_Version'].astype(int)
+
+    # Exclude Test_Version 1 rows for HEAT and far pockets so those cells remain blank
+    df_for_sel = df[~((df['Pocket'].isin(['7B7D_HEAT', '7B7D_far'])) & (df['Test_Version_int'] == 1))]
+
+    # Pick the latest Test_Version per Pocket/X_Label/Metric from the filtered set
+    if not df_for_sel.empty:
+        idx = df_for_sel.groupby(['Pocket', 'X_Label', 'Metric'])['Test_Version_int'].idxmax()
+        df_sel = df.loc[idx]
+    else:
+        df_sel = pd.DataFrame(columns=df.columns)
+
+    for i, (pocket_key, pocket_label) in enumerate(pockets):
+        for j, score_type in enumerate(score_types):
+            ax = axes[i, j]
+
+            # Filter the selected data for this pocket
+            subset = df_sel[df_sel['Pocket'] == pocket_key]
+
+            # Pivot the data so X_Labels are columns and Metrics are rows
+            matrix = subset.pivot(index='Metric', columns='X_Label', values=score_type)
+
+            # Reorder the matrix to match our desired layout; keep NaNs as-is
+            matrix = matrix.reindex(index=Y_AXIS_ORDER, columns=X_AXIS_ORDER)
+
+            # Choose colormap and normalization: for BEDROC use a centered diverging
+            # colormap with center at 0.42 (random-chance baseline). Values >0.42
+            # go to dark blue, values <0.42 go to dark red. NDCG keeps the default.
+            if score_type == 'BEDROC':
+                # Build a diverging colormap: red -> white -> blue.
+                # Blue ramp is sampled from Matplotlib's 'Blues' so blues match NDCG.
+                blues = plt.get_cmap('Blues')
+                # Sample the full Blues ramp from very-light to dark so the blue
+                # side reaches white at the colormap center (vcenter=0.42).
+                blue_samples = [blues(t) for t in np.linspace(0.0, 1.0, 128)]
+
+                # Create a red ramp from dark red to white with the same number of samples
+                dark_red = np.array([0.55, 0.0, 0.0])
+                white = np.array([1.0, 1.0, 1.0])
+                red_samples = [tuple(dark_red * (1.0 - t) + white * t) for t in np.linspace(0.0, 1.0, 128)]
+
+                # Concatenate: red_samples -> white -> blue_samples. Using equal sample
+                # counts places white near the colormap midpoint so TwoSlopeNorm centers it.
+                color_list = red_samples + [tuple(white)] + blue_samples
+                bedroc_cmap = LinearSegmentedColormap.from_list('bedroc_cmap', color_list)
+                norm = TwoSlopeNorm(vmin=0.0, vcenter=0.42, vmax=1.0)
+                sns.heatmap(
+                    matrix, ax=ax, cmap=bedroc_cmap, norm=norm, annot=True, fmt=".2f",
+                    linewidths=1, linecolor='gray', cbar_kws={'label': score_type}
+                )
+            else:
+                sns.heatmap(
+                    matrix, ax=ax, cmap="Blues", annot=True, fmt=".2f",
+                    vmin=0.0, vmax=1.0, linewidths=1, linecolor='gray',
+                    cbar_kws={'label': score_type}
+                )
+
+            ax.set_title(f"{pocket_label} - {score_type}", fontsize=12, weight='bold', pad=12)
+            ax.set_ylabel("")
+            ax.set_xlabel("")
+            ax.tick_params(axis='x', rotation=45)
+
+            # Vertical separator between rescore and refinement columns (after 5 rescore columns)
+            ax.axvline(x=5, color='black', linewidth=6)
 
     plt.tight_layout()
-    output_img = os.path.join(OUTPUT_DIR, "HEAT_Heatmap_show_best_sorting_accuracy_test2_vs_3.svg")
+    output_img = os.path.join(OUTPUT_DIR, "HEAT_Heatmap_show_best_sorting_accuracy_all_three_pockets_weighted_consensus.png")
     plt.savefig(output_img, dpi=300, bbox_inches='tight')
     print(f"Success! Graphic saved to {output_img}")
 

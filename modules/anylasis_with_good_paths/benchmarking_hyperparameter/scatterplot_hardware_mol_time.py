@@ -80,8 +80,13 @@ def process_data():
         group['Norm_CNN_Aff'] = min_max_normalize(group['CNN_Affinity'])
         group['Norm_CNN_Pose'] = min_max_normalize(group['CNN_Pose_Score'])
         group['Norm_Vina'] = min_max_normalize(group['Vina_Affinity'])
-        group['Consensus'] = group[['Norm_CNN_Aff', 'Norm_CNN_Pose', 'Norm_Vina']].mean(axis=1)
-
+        # Calculate Weighted Consensus Score:
+        # 25% CNN Affinity, 45% CNN Pose Score, 30% Vina Affinity
+        group['Consensus'] = (
+            (0.25 * group['Norm_CNN_Aff']) + 
+            (0.45 * group['Norm_CNN_Pose']) + 
+            (0.30 * group['Norm_Vina'])
+        )
         sorted_group = group.sort_values(by='Consensus', ascending=False)
         
         ndcg_score = calculate_ndcg(sorted_group['NDCG_Weight'].tolist())
@@ -121,7 +126,7 @@ def draw_scatter_plots(df):
     # CHANGE 4: Add the shape dictionary (Circle = rescore, Star = refinement)
     markers = {'rescore': 'o', 'refinement': '*'}
     
-    metrics = [('BEDROC', 'Consensus BEDROC (Alpha=8)'), ('NDCG', 'Consensus NDCG')]
+    metrics = [('BEDROC', 'Weighted Consensus BEDROC (Alpha=8)'), ('NDCG', 'Consensus NDCG')]
 
     subset = df[df['Pocket'] == '7B7D_HEAT']
     
