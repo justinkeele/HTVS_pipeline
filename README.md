@@ -37,11 +37,15 @@ HTVS_pipeline/
 This pipeline is currently being expanded to include:
 
 - Automated ZINC database aggregation and filtering directly within the pipeline. Additional options to generate tautomers and isomers, pH range. 
-- Additional docking modules (CmDock, ArtiDock, ProLIF, REINVENT4).
+- Additional docking/fingerprinting modules (CmDock, ArtiDock, ProLIF). REINVENT4 for generating new hits from a parent molecule, with a tagert molcule design. 
 - A possible consensus scoring model to cross-reference hits across multiple scoring platforms.
-- Dynamic configuration files to eliminate hardcoded paths and allow for user-defined hyperparameter tuning (e.g., variable exhaustiveness) via command-line arguments.
+- Configuration files to eliminate hardcoded paths and allow user-defined hyperparameter tuning (e.g., variable exhaustiveness) via command-line arguments.
 - Partially automated receptor preparation
+
+Sometime in the future:
 - An API for users to easily select and define runs
+- Test across multiple devices
+- A complete install.sh script for easy setup
 
 # License & Credit
 This code is open for academic and research use. If you fork, modify, or integrate this architecture into your own workflows or machine learning models, please cite this repository and its developer.
