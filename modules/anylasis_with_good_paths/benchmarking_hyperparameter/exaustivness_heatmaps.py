@@ -155,6 +155,17 @@ def plot_heatmaps(results_df):
 
     fig, axes = plt.subplots(len(pockets), len(score_types), figsize=(16, 12), sharex=True, sharey=True)
 
+    # --- THE FIX: BUILD THE UNIFIED COLORMAP ONCE ---
+    blues = plt.get_cmap('Blues')
+    blue_samples = [blues(t) for t in np.linspace(0.0, 1.0, 128)]
+    dark_red = np.array([0.55, 0.0, 0.0])
+    white = np.array([1.0, 1.0, 1.0])
+    red_samples = [tuple(dark_red * (1.0 - t) + white * t) for t in np.linspace(0.0, 1.0, 128)]
+    
+    color_list = red_samples + [tuple(white)] + blue_samples
+    diverging_cmap = LinearSegmentedColormap.from_list('custom_diverging', color_list)
+    # ------------------------------------------------
+
     # Pre-select rows: for each Pocket/X_Label/Metric pick the row with the highest Test_Version
     df = results_df.copy()
     df['Test_Version_int'] = df['Test_Version'].astype(int)
@@ -182,37 +193,19 @@ def plot_heatmaps(results_df):
             # Reorder the matrix to match our desired layout; keep NaNs as-is
             matrix = matrix.reindex(index=Y_AXIS_ORDER, columns=X_AXIS_ORDER)
 
-            # Choose colormap and normalization: for BEDROC use a centered diverging
-            # colormap with center at 0.42 (random-chance baseline). Values >0.42
-            # go to dark blue, values <0.42 go to dark red. NDCG keeps the default.
+            # --- THE FIX: APPLY TWO-SLOPE NORMALIZATION ---
             if score_type == 'BEDROC':
-                # Build a diverging colormap: red -> white -> blue.
-                # Blue ramp is sampled from Matplotlib's 'Blues' so blues match NDCG.
-                blues = plt.get_cmap('Blues')
-                # Sample the full Blues ramp from very-light to dark so the blue
-                # side reaches white at the colormap center (vcenter=0.42).
-                blue_samples = [blues(t) for t in np.linspace(0.0, 1.0, 128)]
-
-                # Create a red ramp from dark red to white with the same number of samples
-                dark_red = np.array([0.55, 0.0, 0.0])
-                white = np.array([1.0, 1.0, 1.0])
-                red_samples = [tuple(dark_red * (1.0 - t) + white * t) for t in np.linspace(0.0, 1.0, 128)]
-
-                # Concatenate: red_samples -> white -> blue_samples. Using equal sample
-                # counts places white near the colormap midpoint so TwoSlopeNorm centers it.
-                color_list = red_samples + [tuple(white)] + blue_samples
-                bedroc_cmap = LinearSegmentedColormap.from_list('bedroc_cmap', color_list)
+                # BEDROC: bounds are 0.0 to 1.0, random chance is 0.42
                 norm = TwoSlopeNorm(vmin=0.0, vcenter=0.42, vmax=1.0)
-                sns.heatmap(
-                    matrix, ax=ax, cmap=bedroc_cmap, norm=norm, annot=True, fmt=".2f",
-                    linewidths=1, linecolor='gray', cbar_kws={'label': score_type}
-                )
             else:
-                sns.heatmap(
-                    matrix, ax=ax, cmap="Blues", annot=True, fmt=".2f",
-                    vmin=0.0, vmax=1.0, linewidths=1, linecolor='gray',
-                    cbar_kws={'label': score_type}
-                )
+                # NDCG: bounds are 0.424 to 1.0, random chance is 0.644
+                norm = TwoSlopeNorm(vmin=0.424, vcenter=0.644, vmax=1.0)
+                
+            sns.heatmap(
+                matrix, ax=ax, cmap=diverging_cmap, norm=norm, annot=True, fmt=".2f",
+                linewidths=1, linecolor='gray', cbar_kws={'label': score_type}
+            )
+            # ----------------------------------------------
 
             ax.set_title(f"{pocket_label} - {score_type}", fontsize=12, weight='bold', pad=12)
             ax.set_ylabel("")
@@ -223,7 +216,7 @@ def plot_heatmaps(results_df):
             ax.axvline(x=5, color='black', linewidth=6)
 
     plt.tight_layout()
-    output_img = os.path.join(OUTPUT_DIR, "HEAT_Heatmap_show_best_sorting_accuracy_all_three_pockets_weighted_consensus.png")
+    output_img = os.path.join(OUTPUT_DIR, "HEAT_Heatmap_show_best_sorting_accuracy_all_three_pockets_weighted_consensus2.png")
     plt.savefig(output_img, dpi=300, bbox_inches='tight')
     print(f"Success! Graphic saved to {output_img}")
 
