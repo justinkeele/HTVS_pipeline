@@ -1,13 +1,14 @@
 # High-Throughput Virtual Screening (HTVS) Pipeline
-
-Created by: Justin Keele and created under Dr. Jagdish Patel, University of Idaho  
+Created by: Justin Keele (Biology, back-end modules scripts) and London Beglich-Bal (API/CLI Development, C++ optimization), University of Idaho  
 Supported by the College of Engineering Professional Skills Academy, the Department of Chemical and Biological Engineering, and funding from the DeVlieg Foundation.
 
 ## Overview
-This repository contains the foundational architecture and scripts for a modular, automated High-Throughput Virtual Screening (HTVS) pipeline. The pipeline is meant to handle large-scale molecular docking. The scripts have been successfully run on libraries of 870,000 molecules downloaded raw from the ZINC database for our lab's high throughput virtual screening campaign against YeF3, using the 7B7D and 2IW3 targets. This process started with the raw SMILES strings downloads, then filtered and processed with OpenBabel/RDKit and finally run with the AutoDock-Vina software. We are currently working on developing tools for GNINA, CmDock/RxDock, and potentially others. Dock6 is included but is very fragile since the program is no longer maintained. 
+This repository contains the foundational architecture and scripts for a modular, automated High-Throughput Virtual Screening (HTVS) pipeline. The pipeline is meant to handle large-scale molecular docking. The scripts have been successfully run on libraries of 870,000 molecules downloaded raw from the ZINC database for a inital high throughput virtual screening campaign against YeF3, using the 7B7D and 2IW3 targets. This process started with the raw SMILES strings downloads, then filtered and processed with OpenBabel/RDKit and finally run with the AutoDock-Vina software. We are currently working on developing tools for GNINA, CmDock/RxDock, and potentially others. Dock6 is included but is very fragile since the program is no longer maintained. 
+
+The ultimate goal of this project is a user-friendly API and GUI for a biologist and/or student who is unfamiliar with bash and python coding languages. While tools like CHARMM-GUI, DockM8 and Schrodinger Suite attempt to do this, they all have significant downsides. CHARMM-GUI is mainly focused on molecular dynamics and requires a lot of command-line usage, making it both non-applicable to HTVS and complex for the average user. Webservers like DockM8 are very simplified, preventing rigorous parameter tweaking. Schrodinger is an incredibly expensive Enterprise-grade software suite. It does not explain the biology and parameters behind it, making it a black-box for anyone learning HTVS. It is also, as noted prohibitively expensive. The goal of this project is to guide a user through HTVS, allowing default parameters that may be tweaked as a user gains experience, teaching the parameters and programs along the way. 
 
 **Status: Alpha / Active Development**  
-*Note: The scripts in this repository are currently set up with hardcoded paths specific to a local environment and the U of I HPC cluster. Users cloning or forking this repository would need to manually configure the directory paths in the shell scripts to match their local environment and the directory structure. This pipeline is currently intended for my laptop and HPC account to be used on internal Patel lab development and benchmarking; it has many hardcoded paths and likely won't work on another device or HPC account. There is a secondary branch I am working on for analysis and benchmarking.
+*Note: The scripts in this repository are currently set up with hardcoded paths specific to a local environment and the U of I HPC cluster. Users cloning or forking this repository would need to manually configure the directory paths in the shell scripts to match their local environment and the directory structure. This pipeline is currently being transitioned from use with my private laptop and HPC account to be usable for other people; it has many hardcoded paths and likely won't work on another device or HPC account. There is a secondary branch I am working on for analysis and benchmarking.
 
 ### Current Directory Structure
 ```
@@ -37,7 +38,7 @@ HTVS_pipeline/
 This pipeline is currently being expanded to include:
 
 - Automated ZINC database aggregation and filtering directly within the pipeline. Additional options to generate tautomers and isomers, pH range. 
-- Additional docking/fingerprinting modules (CmDock, ArtiDock, ProLIF). REINVENT4 for generating new hits from a parent molecule, with a tagert molcule design. 
+- Additional docking/fingerprinting modules (CmDock, ArtiDock, ProLIF). REINVENT4 for generating new hits from a parent molecule, with a target molecule design. 
 - A possible consensus scoring model to cross-reference hits across multiple scoring platforms.
 - Configuration files to eliminate hardcoded paths and allow user-defined hyperparameter tuning (e.g., variable exhaustiveness) via command-line arguments.
 - Partially automated receptor preparation
@@ -48,12 +49,18 @@ Sometime in the future:
 - A complete install.sh script for easy setup
 
 # License & Credit
-This code is open for academic and research use. If you fork, modify, or integrate this architecture into your own workflows or machine learning models, please cite this repository and its developer.
+This code is open for academic and research use and licensed under the GNU General Public License v3.0 (GPLv3).
+
+This guarantees the code remains open-source. Under the terms of the GPLv3, any individual or laboratory that forks, modifies, or integrates any part of this architecture into their own workflows or publications must:
+1) Make their resulting project entirely open-source.
+2) Explicitly cite this repository and its original authors (Justin Keele & London Beglich-Bal).
+
+Failure to adhere to these terms constitutes a violation of the open-source license.
 
 # Acknowledgements​ and Citations
 
-Computational resources were provided in part by Research Computing and Data Services (RCDS). We also thank the Drug Discovery Working Group of the
-Institute for Modeling Collaboration and Innovation (IMCI) for providing additional support. 
+Computational resources were provided in part by Research Computing and Data Services (RCDS). Justin Keele also thanks the Drug Discovery Working Group of the
+Institute for Modeling Collaboration and Innovation (IMCI) for providing initial additional support in learning about HTVS architecture and designing a pipeline to target YeF3. 
 
 Tools and servers included are: ZINC_database, RDKit, OpenBabel, dock6 (legacy), gnina, Rxdock, CmDock, AutoDock-Vina, Conda, and various Python libraries. Credit goes to each of the creators of these tools. 
 
